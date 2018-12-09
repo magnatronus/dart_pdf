@@ -16,28 +16,17 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-part of pdf;
+library widget;
 
-@immutable
-class PdfRect {
-  final double x, y, w, h;
+import 'dart:math';
 
-  const PdfRect(this.x, this.y, this.w, this.h);
+import 'package:meta/meta.dart';
+import 'package:pdf/pdf.dart';
+import 'package:vector_math/vector_math_64.dart';
 
-  factory PdfRect.fromLTRB(
-      double left, double top, double right, double bottom) {
-    return PdfRect(left, top, right - left, bottom - top);
-  }
-
-  double get l => x;
-  double get b => y;
-  double get r => x + w;
-  double get t => y + h;
-
-  @override
-  String toString() => "PdfRect($x, $y, $w, $h)";
-
-  PdfRect operator *(double factor) {
-    return PdfRect(x * factor, y * factor, w * factor, h * factor);
-  }
-}
+part 'widgets/document.dart';
+part 'widgets/flex.dart';
+part 'widgets/geometry.dart';
+part 'widgets/image.dart';
+part 'widgets/widget.dart';
+part 'widgets/text.dart';
